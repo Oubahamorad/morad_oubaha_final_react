@@ -1,12 +1,12 @@
 import React from 'react';
 import { IoIosContact } from "react-icons/io";
 import { FaShoppingBag } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 
 
 export const Header = () => {
     // const navigate = useNavigate()
-    
+    const  navigate = useNavigate()
     return (
         <>
         
@@ -14,7 +14,7 @@ export const Header = () => {
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 ">
   <a href="https://flowbite.com/" className="flex items-center space-x-3 rtl:space-x-reverse" >
       
-      <span className="self-center font-bold text-5xl  whitespace-nowrap dark:text-white " >Fashe <span className='text-red-700'>.</span></span>
+      <Link to={'/home'} className="self-center font-bold text-5xl  whitespace-nowrap dark:text-white " >Fashe <span className='text-red-700'>.</span></Link>
   </a>
   <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
       <div className='flex'>
@@ -25,8 +25,7 @@ export const Header = () => {
 
 
 
-      <button  className=" relative text-3xl  focus:ring-4 focus:outline-none font-medium rounded-lg  px-4 py-2 text-center flex gap-2" ><FaShoppingBag />
-      <div className=' absolute rounded-lg w-8  bottom-0 right-0 h-8 text-center bg-red-600 d-flex justify-center items-center'>3</div></button>
+   <FaShoppingBag  className=" text-3xl relative mx-2 my-2 "   onClick={()=>{navigate('/cart')}}/>
 
 
 

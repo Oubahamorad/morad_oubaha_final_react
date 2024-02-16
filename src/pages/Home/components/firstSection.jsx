@@ -25,8 +25,9 @@ export const FirstSection = () => {
   const { name } = useParams()
 
   const add = (element) => {
-    cart.push(element)
-    console.log(cart);
+    const newcart = [...cart, element];
+      setCart(newcart);
+      console.log(cart);
     console.log('mmm');
 }
   
