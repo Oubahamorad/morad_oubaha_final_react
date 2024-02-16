@@ -8,9 +8,11 @@ import { data } from 'autoprefixer';
 
 
 export const Products = () => {
-    const [test, setTest] = useContext(MyContext)
-    const {name} = useParams()
+    const [test, setTest ,cat ,setCart] = useContext(MyContext); 
+       const {name} = useParams()
 
+   
+ 
     const productFiter = test.filter((test) => test.name == name )
    
     console.log( productFiter );
@@ -73,7 +75,7 @@ export const Products = () => {
                                                 
                                                 <button onClick={() => setCount(count + 1)} className=' px-5 rounded-full text-2xl hover:bg-slate-200 duration-300'>+</button>
                                                 <h1>{count}</h1>
-                                                <button onClick={() => setCount(count - 1)} className=' px-5 rounded-full text-2xl hover:bg-slate-200 duration-300'>-</button>
+                                                <button onClick={() => setCount(count - 1)}  disabled={count===1} className=' px-5 rounded-full text-2xl hover:bg-slate-200 duration-300'>-</button>
                                             </div>
                                         </div>
                                     </div>

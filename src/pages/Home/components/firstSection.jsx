@@ -19,11 +19,32 @@ import { useContext } from "react";
 import { MyContext } from "../../../utils/contextProvider";
 import { Button, Modal } from 'flowbite-react';
 import { useState } from 'react';
-import { HiOutlineExclamationCircle } from 'react-icons/hi';
 
 export const FirstSection = () => {
-  const [test, setTest] = useContext(MyContext  );
+  const [test, setTest ,cart ,setCart] = useContext(MyContext);
   const { name } = useParams()
+
+  const add = (element) => {
+    cart.push(element)
+    console.log(cart);
+    console.log('mmm');
+}
+  
+// const add = (element) => {
+//   const isInCart = cart.find(item => item.name === element.name);
+//   if (!isInCart) {
+//       const newcart = [...cart, element];
+//       setCart(newcart);
+//       console.log(cart);
+//   } else {
+//       console.log("Item is already in the cart.");
+//   }
+// }
+  const randomIndex = Math.floor(Math.random() * test.length)
+  
+  const newDataBase = test[randomIndex]
+
+
   
   const navigate = useNavigate();
 
@@ -56,11 +77,7 @@ export const FirstSection = () => {
   )
 
   const [openModal, setOpenModal] = useState(false);
-  const [cartItems, setCartItems] = useState(0);
-  const handleBuyButtonClick = () => {
-    // زيادة عدد المنتجات في السلة بمقدار واحد
-    setCartItems(cartItems + 1);
-  };
+
 
 
   return (
@@ -70,27 +87,27 @@ export const FirstSection = () => {
           <div className="imagecarousel2 text-center text-white  flex flex-col justify-center items-center ">
             <h2>Women Collection 2018 </h2>
             <h1 className="font-bold text-5xl p-2">NEW ARRIVALS</h1>
-            <button className="bg-white text-black  w-[8%] border-collapse rounded-full hover:bg-red-600 hover:text-white">
+            <button className="bg-white text-black  w-[8%] max-md:w-[30%] border-collapse rounded-full hover:bg-red-600 hover:text-white">
               SHOP NOW{" "}
             </button>
           </div>
           <div className="imagecarousel1 text-center text-white  flex flex-col justify-center items-center ">
             <h2>Women Collection 2018 </h2>
             <h1 className="font-bold text-5xl p-2">NEW ARRIVALS</h1>
-            <button className="bg-white text-black  w-[8%] border-collapse rounded-full hover:bg-red-600 hover:text-white">
+            <button className="bg-white max-md:w-[30%] text-black  w-[8%] border-collapse rounded-full hover:bg-red-600 hover:text-white">
               SHOP NOW{" "}
             </button>
           </div>
           <div className="imagecarousel3 text-center text-white  flex flex-col justify-center items-center  ">
             <h2>Women Collection 2018 </h2>
             <h1 className="font-bold text-5xl p-2">NEW ARRIVALS</h1>
-            <button className="bg-white text-black  w-[8%] border-collapse rounded-full hover:bg-red-600 hover:text-white">
+            <button className="bg-white max-md:w-[30%] text-black  w-[8%] border-collapse rounded-full hover:bg-red-600 hover:text-white">
               SHOP NOW{" "}
             </button>
           </div>
         </Carousel>
       </div>
-      <div className=" flex flex-row  gap-8 my-40 mx-40">
+      <div className=" flex flex-row  max-md:flex-col  max-md:w-[70%]  max-md:mx-20 gap-8 my-40 mx-40">
         <div className="flex  flex-col gap-4">
           <div className=" overflow-hidden relative ">
             <img
@@ -168,14 +185,14 @@ export const FirstSection = () => {
 
             <Tabs aria-label="Default tabs" className="flex justify-center w-full">
       <Tabs.Item active title="NEW">
-       <div className="flex p-3 gap-5 justify-center items-center">
+       <div className="flex p-3 max-md:my-5   max-md:mx-6   max-md:gap-5   max-md:flex-col gap-5 justify-center items-center">
         {
             productFiter.map((element, index) => 
             <div>
             
                 <img src={element.imge}  className="w-[70%] h-[80%]" alt="" />
           
-                <Button className=" " onClick={() => setOpenModal(true)} >ADD TO CART</Button>
+                <Button className=" " onClick={() => { setOpenModal(true); add(element); }} >ADD TO CART</Button>
       <Modal show={openModal} size="md" onClose={() => setOpenModal(false)} popup>
         <Modal.Header />
         <Modal.Body>
@@ -203,7 +220,7 @@ export const FirstSection = () => {
         }</div>
       </Tabs.Item>
       <Tabs.Item title="SALE" >
-     <div className="flex p-3 gap-5  justify-center items-center">
+     <div className="flex p-3 gap-5    max-md:my-5   max-md:mx-6   max-md:gap-5 max-md:flex-col justify-center items-center">
       {
             productFiter1.map((element, index) => 
             <div>
@@ -234,12 +251,12 @@ export const FirstSection = () => {
         }</div>
       </Tabs.Item>
       <Tabs.Item title="OLD">
-      <div className="flex   justify-center items-center">
+      <div className="flex max-md:my-5   max-md:mx-6   max-md:gap-5    max-md:flex-col  justify-center items-center">
       {
             productFiter2.map((element, index) => 
             <div>
                 <img src={element.imge} className="w-[70%] h-[80%]" alt="" />
-                <Button className=" " onClick={() => setOpenModal(true)} >ADD TO CART</Button>
+                <Button className=" " onClick={() => setOpenModal(true) }   >ADD TO CART</Button>
       <Modal show={openModal} size="md" onClose={() => setOpenModal(false)} popup>
         <Modal.Header />
         <Modal.Body>
@@ -274,12 +291,12 @@ export const FirstSection = () => {
       
 
       
-      <div className=" h-[100%] p-20 bg-[#f0f0f0f0] flex justify-center items-center">
-        <div className=" text-center relative text-white  flex flex-col w-[50%] justify-center items-center   ">
+      <div className=" h-[100%] max-md:flex-col   p-20 bg-[#f0f0f0f0]  flex justify-center items-center">
+        <div className=" text-center relative text-white  flex flex-col   justify-center items-center   ">
           <div className="overflow-hidden">
             <img
               src={immege17}
-              className="w-[40vw] h-[60vh]  hover:scale-110 transition "
+              className="w-[80vw]  h-[60vh]  hover:scale-110 transition "
               alt=""
             />
           </div>
@@ -289,19 +306,19 @@ export const FirstSection = () => {
             <a className="font-bold text-xl p-2 ">VIEW COLLECTION</a>
           </div>
         </div>
-        <div className="w-[40%] relative overflow-hidden  bg-white">
+        <div className="w-[100%] relative overflow-hidden  bg-white">
           <img
-            src={immege19}
-            className=" hover:scale-110 transition w-[40vw] h-[60vh] "
+            src={newDataBase.imge}
+            className=" hover:scale-110 transition w-[80vw] h-[60vh] " 
             alt=""
           />
-          <p className="absolute h-[100%] top-60 left-44 hover:text-red-600">
+          <p className="absolute h-[100%] top-64 left-64 hover:text-red-600 max-md:text-center max-md:top-50  max-md:left-10 "  >
             Boxy2 T-Shirt with Roll Sleeve
           </p>
         </div>
       </div>
       <h1 className="text-center font-bold text-3xl m-10">OUR BLOG</h1>
-      <div className="flex gap-6 justify-evenly m-12">
+      <div className="flex max-md:flex-col gap-6 justify-evenly m-12">
         <div className="overflow-hidden">
           <img
             src={immege18}
@@ -332,7 +349,7 @@ export const FirstSection = () => {
             pellentesque mattis augue id euismod. Inter-dum et...
           </p>
         </div>
-        <div className="overflow-hidden">
+        <div className="overflow-hidden ">
           <img
             src={immege21}
             className="w-[89%]  hover:scale-110 transition"
@@ -353,7 +370,7 @@ export const FirstSection = () => {
       <h1 className="text-center font-bold text-3xl m-10">
         @ FOLLOW US ON INSTAGRAM
       </h1>
-      <div className="flex justify-evenly m-10">
+      <div className="flex  max-md:flex-col  max-md:gap-6 justify-evenly m-10">
         <div>
           <p className="text-xl text-gray-400 text-center ">
             Free Delivery Worldwide

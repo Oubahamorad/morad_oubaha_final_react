@@ -19,7 +19,7 @@ import immege17 from "../assets/img/item-17.jpg";
 export const MyContext = createContext();
 export const MyProvider = ({ children }) => {
    
-
+const [cart ,setCart] = useState([])
 
     
   const [test, setTest] = useState([
@@ -145,7 +145,7 @@ export const MyProvider = ({ children }) => {
 
   return (
     <>
-      <MyContext.Provider value={[test, setTest]}>
+      <MyContext.Provider value={[test, setTest, cart, setCart]} >
         {children}
       </MyContext.Provider>
     </>

@@ -3,10 +3,13 @@ import { IoIosContact } from "react-icons/io";
 import { FaShoppingBag } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
+
 export const Header = () => {
     // const navigate = useNavigate()
+    
     return (
         <>
+        
           <nav className="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600 z- m-auto">
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4 ">
   <a href="https://flowbite.com/" className="flex items-center space-x-3 rtl:space-x-reverse" >
@@ -16,8 +19,21 @@ export const Header = () => {
   <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
       <div className='flex'>
       <button type="button" className=" text-3xl  focus:ring-4 focus:outline-none font-medium rounded-lg  px-4 py-2 text-center flex gap-2"><IoIosContact /> |  </button>
+
+
+
+
+
+
       <button  className=" relative text-3xl  focus:ring-4 focus:outline-none font-medium rounded-lg  px-4 py-2 text-center flex gap-2" ><FaShoppingBag />
       <div className=' absolute rounded-lg w-8  bottom-0 right-0 h-8 text-center bg-red-600 d-flex justify-center items-center'>3</div></button>
+
+
+
+
+
+
+      
 </div>
       <button data-collapse-toggle="navbar-sticky" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
         <span className="sr-only">Open main menu</span>
