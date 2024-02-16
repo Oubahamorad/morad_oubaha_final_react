@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.bgimg {
+    background-image: url(../../../assets/img/heading-pages-06.jpg);
+    height: 35vh;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top:70px;
+}
+
+.textt{
+    border-left: 2px solid gray ;
+    
+}
+@media (max-width :426px) {
+    .immg{
+        flex-direction: column;
+        
+   
+    }
+    
+}
