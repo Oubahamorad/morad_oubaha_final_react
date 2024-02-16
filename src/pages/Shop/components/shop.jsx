@@ -15,7 +15,7 @@ export const Shop = () => {
     const SALE = () => {
       const filteredProducts = test.filter((item) => item.getrgory === 'SALE');
       setFilterProduct(filteredProducts);
-      setFilterProduct1([]); // Reset other filters
+      setFilterProduct1([]); // Reset other filterss
       setFilterProduct2([]);
   };
   const NEW = () => {
